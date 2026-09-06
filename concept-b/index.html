@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dar El Bek (دار البيك) — Concept B: Minimal Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside style="background:#000; color:#fff; text-align:center; padding:7px 16px; font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase;">
+    Dar El Bek · Design Direction B · Minimal Fine Dining (Swiss Precision) · For Client Approval
+  </aside>
+
+  <!-- Header -->
+  <header class="b-header">
+    <div class="b-container">
+      <div class="b-header-inner">
+        <a href="#" class="b-brand">
+          DAR EL BEK // دار البيك
+        </a>
+        <span class="b-header-status hidden-mobile">MTAYLEB ROTISSERIE // OPEN 11:30–23:00 // BEIRUT</span>
+        <div class="b-header-actions">
+          <button class="b-btn-cart" onclick="openCartDrawer()">
+            <span>BASKET</span>
+            <span id="b-cart-count">[0]</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Category Nav Strip -->
+  <nav class="b-mobile-categories">
+    <a href="#sec-01" class="b-mobile-cat-link active">01/GRILL</a>
+    <a href="#sec-02" class="b-mobile-cat-link">02/BROASTED</a>
+    <a href="#sec-03" class="b-mobile-cat-link">03/MACHAWI</a>
+    <a href="#sec-04" class="b-mobile-cat-link">04/MEZZE</a>
+    <a href="#sec-05" class="b-mobile-cat-link">05/WRAPS</a>
+    <a href="#sec-06" class="b-mobile-cat-link">06/HPC</a>
+  </nav>
+
+  <!-- Main Split Layout -->
+  <div class="b-container">
+    <div class="b-layout-split">
+      <!-- Sticky Left Rail -->
+      <aside class="b-rail">
+        <div class="b-rail-section-title">INDEX // CULINARY DIVISIONS</div>
+        <ul class="b-rail-nav-list">
+          <li>
+            <a href="#sec-01" class="b-rail-link active" onclick="setActiveRail(this)">
+              <span>01 / CHARCOAL HEARTH</span>
+              <span class="b-rail-count">(04)</span>
+            </a>
+          </li>
+          <li>
+            <a href="#sec-02" class="b-rail-link" onclick="setActiveRail(this)">
+              <span>02 / GOLDEN BROASTED</span>
+              <span class="b-rail-count">(03)</span>
+            </a>
+          </li>
+          <li>
+            <a href="#sec-03" class="b-rail-link" onclick="setActiveRail(this)">
+              <span>03 / MACHAWI SKEWERS</span>
+              <span class="b-rail-count">(02)</span>
+            </a>
+          </li>
+          <li>
+            <a href="#sec-04" class="b-rail-link" onclick="setActiveRail(this)">
+              <span>04 / LEVANTINE MEZZE</span>
+              <span class="b-rail-count">(06)</span>
+            </a>
+          </li>
+          <li>
+            <a href="#sec-05" class="b-rail-link" onclick="setActiveRail(this)">
+              <span>05 / CHARRED WRAPS</span>
+              <span class="b-rail-count">(02)</span>
+            </a>
+          </li>
+          <li>
+            <a href="#sec-06" class="b-rail-link" onclick="setActiveRail(this)">
+              <span>06 / HIGH PROTEIN CLUB</span>
+              <span class="b-rail-count">(01)</span>
+            </a>
+          </li>
+        </ul>
+
+        <div style="margin-top:60px; padding-top:24px; border-top:1px solid var(--color-gray-light);">
+          <div class="b-rail-section-title">LOGISTICS SPECIFICATION</div>
+          <p style="font-size:12px; color:var(--color-gray-mid); line-height:1.6; margin-bottom:12px;">
+            Orders dispatched via dedicated thermal couriers from Mtayleb Kitchen. Live GPS tracking enabled upon confirmation.
+          </p>
+          <div style="font-family:var(--font-mono); font-size:11px; color:var(--color-black);">
+            TEL: +961 4 928 111<br/>
+            RATE: 89,500 LBP / USD
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Catalog Stream -->
+      <main class="b-catalog-stream">
+        <!-- Architecture Intro -->
+        <section class="b-manifesto">
+          <div class="b-manifesto-grid">
+            <div>
+              <h1 class="b-manifesto-headline">ARCHITECTURAL ROTISSERIE // MTAYLEB.</h1>
+              <p class="b-manifesto-body">
+                Precision Lebanese charcoal fire-cooking. We reject artificial flavorings, commercial briquettes, and pre-packaged dressings. Whole birds are marinated for 24 hours in cold-pressed garlic and wild thyme, slow-roasted over oak embers.
+              </p>
+            </div>
+            <div class="b-manifesto-specs">
+              <div>// DISCIPLINE: WOOD EMBERS</div>
+              <div>// SALT: BYBLOS SEA SALT</div>
+              <div>// POULTRY: FARM-DIRECT GRAIN FED</div>
+              <div>// TOUM: PURE COLD WHIPPED</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 01: CHARCOAL HEARTH -->
+        <section id="sec-01" class="b-section">
+          <div class="b-section-header">
+            <span class="b-section-code">DIV // 01</span>
+            <h2 class="b-section-title">CHARCOAL HEARTH &amp; ROTISSERIE</h2>
+          </div>
+
+          <!-- Feature Item -->
+          <article class="b-feature-spread" onclick="openDetailModal('farrouj-fahem-msahab', 'Farrouj Fahem Msahab', 'فروج مسحّب عالفحم', '2,058,500 LBP', '$23.00', 'Whole deboned chicken steeped in mountain garlic brine, slow-charred over citrus coals. Served with whipped toum, pickles, and hearth bread.', '../assets/chargrilled-boneless-chicken.jpg')">
+            <div class="b-feature-img-cell">
+              <img src="../assets/chargrilled-boneless-chicken.jpg" alt="Farrouj Fahem Msahab"/>
+            </div>
+            <div class="b-feature-data-cell">
+              <div>
+                <div class="b-feature-item-code">REF: D-01 // SIGNATURE DISH // SERVES 2</div>
+                <h3 class="b-feature-item-name">Farrouj Fahem Msahab (فروج مسحّب عالفحم)</h3>
+                <p class="b-feature-item-desc">Deboned whole chicken seasoned with wild thyme, sumac, and crushed garlic. Spit-roasted slowly over oak charcoal with caramelized blistered skin.</p>
+              </div>
+              <div class="b-feature-action-bar">
+                <div>
+                  <div class="b-feature-price">2,058,500 LBP</div>
+                  <div style="font-family:var(--font-mono); font-size:11px; color:var(--color-gray-mid);">(~$23.00 USD)</div>
+                </div>
+                <button class="b-btn-action" onclick="event.stopPropagation(); quickAdd('Farrouj Fahem Msahab', 2058500, '$23.00', '../assets/chargrilled-boneless-chicken.jpg')">
+                  + ADD TO SELECTION
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tabular Rows -->
+          <div class="b-data-table">
+            <div class="b-data-row" onclick="openDetailModal('farrouj-fahem', 'Farrouj Fahem (Whole)', 'فروج عالفحم', '1,745,250 LBP', '$19.50', 'Whole bone-in chicken charred over embers. Served with garlic paste & bread.', '../assets/chargrilled-chicken.jpg')">
+              <img src="../assets/chargrilled-chicken.jpg" class="b-data-thumb" alt="Farrouj Fahem"/>
+              <div>
+                <div class="b-data-title">Farrouj Fahem (Whole) // فروج عالفحم</div>
+                <div class="b-data-desc">Whole bone-in bird slow-roasted over oak coals. Garlic paste, pickles, flatbread.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">1,745,250 LBP</span>
+                <span class="b-data-usd">$19.50</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;" onclick="event.stopPropagation(); quickAdd('Farrouj Fahem (Whole)', 1745250, '$19.50', '../assets/chargrilled-chicken.jpg')">+</button>
+              </div>
+            </div>
+
+            <div class="b-data-row" onclick="openDetailModal('half-farrouj', 'Half Farrouj Fahem', 'نصف فروج عالفحم', '1,163,500 LBP', '$13.00', 'Half chargrilled bird with garlic paste, pickles, and fresh flatbread.', '../assets/chargrilled-chicken.jpg')">
+              <img src="../assets/chargrilled-chicken.jpg" class="b-data-thumb" alt="Half Farrouj"/>
+              <div>
+                <div class="b-data-title">Half Farrouj Fahem // نصف فروج عالفحم</div>
+                <div class="b-data-desc">Half chicken charred over embers. Accompanied by toum and pickles.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">1,163,500 LBP</span>
+                <span class="b-data-usd">$13.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;" onclick="event.stopPropagation(); quickAdd('Half Farrouj Fahem', 1163500, '$13.00', '../assets/chargrilled-chicken.jpg')">+</button>
+              </div>
+            </div>
+
+            <div class="b-data-row" onclick="openDetailModal('wings-fahem', 'Wings Fahem (6 pcs)', 'جوانح عالفحم', '1,163,500 LBP', '$13.00', 'Six charred chicken wings glazed with lemon-garlic emulsion.', '../assets/wings-garlic-sauce.jpg')">
+              <img src="../assets/wings-garlic-sauce.jpg" class="b-data-thumb" alt="Wings"/>
+              <div>
+                <div class="b-data-title">Wings Fahem (6 Pieces) // جوانح عالفحم</div>
+                <div class="b-data-desc">Oak-charred wings basted with lemon juice and whipped toum.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">1,163,500 LBP</span>
+                <span class="b-data-usd">$13.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;" onclick="event.stopPropagation(); quickAdd('Wings Fahem (6 pcs)', 1163500, '$13.00', '../assets/wings-garlic-sauce.jpg')">+</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 02: GOLDEN BROASTED -->
+        <section id="sec-02" class="b-section">
+          <div class="b-section-header">
+            <span class="b-section-code">DIV // 02</span>
+            <h2 class="b-section-title">GOLDEN BROASTED POULTRY</h2>
+          </div>
+
+          <article class="b-feature-spread" onclick="openDetailModal('full-broasted', 'Full Broasted Chicken', 'بروستد مقرمش', '1,879,500 LBP', '$21.00', 'Eight pieces of pressure-fried crispy chicken with coleslaw, fries, and toum.', '../assets/full-broasted-chicken.jpg')">
+            <div class="b-feature-img-cell">
+              <img src="../assets/full-broasted-chicken.jpg" alt="Full Broasted Chicken"/>
+            </div>
+            <div class="b-feature-data-cell">
+              <div>
+                <div class="b-feature-item-code">REF: D-02 // 8 PIECES // CRISP CRUST</div>
+                <h3 class="b-feature-item-name">Full Broasted Heritage Bird (بروستد كامل)</h3>
+                <p class="b-feature-item-desc">Pressure-fried in pure oil with eighteen aromatic spices. Served with hand-cut potatoes, house coleslaw, and cold garlic emulsion.</p>
+              </div>
+              <div class="b-feature-action-bar">
+                <div>
+                  <div class="b-feature-price">1,879,500 LBP</div>
+                  <div style="font-family:var(--font-mono); font-size:11px; color:var(--color-gray-mid);">(~$21.00 USD)</div>
+                </div>
+                <button class="b-btn-action" onclick="event.stopPropagation(); quickAdd('Full Broasted Chicken', 1879500, '$21.00', '../assets/full-broasted-chicken.jpg')">
+                  + ADD TO SELECTION
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <div class="b-data-table">
+            <div class="b-data-row" onclick="openDetailModal('half-broasted', 'Half Broasted Chicken', 'نصف بروستد', '1,253,000 LBP', '$14.00', 'Four pieces of crispy broasted chicken with fries, coleslaw, and toum.', '../assets/half-broasted-chicken.jpg')">
+              <img src="../assets/half-broasted-chicken.jpg" class="b-data-thumb" alt="Half Broasted"/>
+              <div>
+                <div class="b-data-title">Half Broasted (4 Pieces) // نصف بروستد</div>
+                <div class="b-data-desc">Crisp skin with moist meat. Hand-cut fries, coleslaw salad, toum.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">1,253,000 LBP</span>
+                <span class="b-data-usd">$14.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;" onclick="event.stopPropagation(); quickAdd('Half Broasted Chicken', 1253000, '$14.00', '../assets/half-broasted-chicken.jpg')">+</button>
+              </div>
+            </div>
+
+            <div class="b-data-row" onclick="openDetailModal('chicken-tenders', 'Crispy Chicken Tenders', 'تندرز مقرمش', '984,500 LBP', '$11.00', 'Five hand-breaded chicken breast tenderloins with honey mustard and toum.', '../assets/chicken-tenders.jpg')">
+              <img src="../assets/chicken-tenders.jpg" class="b-data-thumb" alt="Tenders"/>
+              <div>
+                <div class="b-data-title">Chicken Tenders (5 Pieces) // تندرز مقرمش</div>
+                <div class="b-data-desc">Tenderloin fillets in spiced buttermilk crust. Toum &amp; honey mustard dip.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">984,500 LBP</span>
+                <span class="b-data-usd">$11.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;" onclick="event.stopPropagation(); quickAdd('Crispy Chicken Tenders', 984500, '$11.00', '../assets/chicken-tenders.jpg')">+</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 03: MACHAWI SKEWERS -->
+        <section id="sec-03" class="b-section">
+          <div class="b-section-header">
+            <span class="b-section-code">DIV // 03</span>
+            <h2 class="b-section-title">MACHAWI &amp; ARTISANAL SKEWERS</h2>
+          </div>
+
+          <article class="b-feature-spread" onclick="openDetailModal('mixed-grill', 'Grand Mixed Grill Platter', 'مشاوي مشكلة', '2,416,500 LBP', '$27.00', 'Skewers of Tawook, Kafta, and Lamb fillet with charred onions, biwaz flatbread.', '../assets/mixed-grilled-platter.jpg')">
+            <div class="b-feature-img-cell">
+              <img src="../assets/mixed-grilled-platter.jpg" alt="Mixed Grill"/>
+            </div>
+            <div class="b-feature-data-cell">
+              <div>
+                <div class="b-feature-item-code">REF: D-03 // TRIPLE SKEWER SPREAD</div>
+                <h3 class="b-feature-item-name">Grand Mixed Grill (صحن مشاوي مشكل)</h3>
+                <p class="b-feature-item-desc">Skewers of grain-fed Tawook, spiced Kafta, and Lamb fillet grilled over white oak coals. Served with sumac biwaz bread and roasted tomatoes.</p>
+              </div>
+              <div class="b-feature-action-bar">
+                <div>
+                  <div class="b-feature-price">2,416,500 LBP</div>
+                  <div style="font-family:var(--font-mono); font-size:11px; color:var(--color-gray-mid);">(~$27.00 USD)</div>
+                </div>
+                <button class="b-btn-action" onclick="event.stopPropagation(); quickAdd('Grand Mixed Grill', 2416500, '$27.00', '../assets/mixed-grilled-platter.jpg')">
+                  + ADD TO SELECTION
+                </button>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- SECTION 04: LEVANTINE MEZZE -->
+        <section id="sec-04" class="b-section">
+          <div class="b-section-header">
+            <span class="b-section-code">DIV // 04</span>
+            <h2 class="b-section-title">LEVANTINE MEZZE MATRIX</h2>
+          </div>
+
+          <div class="b-data-table">
+            <div class="b-data-row" onclick="quickAdd('Hommos Bi Tahineh', 447500, '$5.00', '../assets/hommos.jpg')">
+              <img src="../assets/hommos.jpg" class="b-data-thumb" alt="Hommos"/>
+              <div>
+                <div class="b-data-title">Hommos Bi Tahineh // حمص بطحينة</div>
+                <div class="b-data-desc">Slow-cooked Bekaa chickpeas, stone-ground sesame tahini, virgin olive oil.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">447,500 LBP</span>
+                <span class="b-data-usd">$5.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;">+</button>
+              </div>
+            </div>
+
+            <div class="b-data-row" onclick="quickAdd('Moutabbal Eggplant', 492250, '$5.50', '../assets/moutabbal.jpg')">
+              <img src="../assets/moutabbal.jpg" class="b-data-thumb" alt="Moutabbal"/>
+              <div>
+                <div class="b-data-title">Moutabbal // متبل باذنجان</div>
+                <div class="b-data-desc">Smoky charred eggplant puree with sesame tahini and fresh pomegranate.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">492,250 LBP</span>
+                <span class="b-data-usd">$5.50</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;">+</button>
+              </div>
+            </div>
+
+            <div class="b-data-row" onclick="quickAdd('Fattoush Salad', 626500, '$7.00', '../assets/fattoush.jpg')">
+              <img src="../assets/fattoush.jpg" class="b-data-thumb" alt="Fattoush"/>
+              <div>
+                <div class="b-data-title">Fattoush Salad // فتوش بالدبس</div>
+                <div class="b-data-desc">Purslane, heirloom tomatoes, cucumber, sumac toasted crisps, pomegranate dressing.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">626,500 LBP</span>
+                <span class="b-data-usd">$7.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;">+</button>
+              </div>
+            </div>
+
+            <div class="b-data-row" onclick="quickAdd('Tabbouleh Large', 895000, '$10.00', '../assets/tabbouleh-large.jpg')">
+              <img src="../assets/tabbouleh-large.jpg" class="b-data-thumb" alt="Tabbouleh"/>
+              <div>
+                <div class="b-data-title">Tabbouleh Large // تبولة خضراء</div>
+                <div class="b-data-desc">Hand-chopped fresh parsley, mint, diced tomatoes, fine bulgur, olive oil.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">895,000 LBP</span>
+                <span class="b-data-usd">$10.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;">+</button>
+              </div>
+            </div>
+
+            <div class="b-data-row" onclick="quickAdd('Cheese Rolls (4 pcs)', 447500, '$5.00', '../assets/cheese-rolls.jpg')">
+              <img src="../assets/cheese-rolls.jpg" class="b-data-thumb" alt="Cheese Rolls"/>
+              <div>
+                <div class="b-data-title">Cheese Rolls (4 pcs) // رقاقات جبنة</div>
+                <div class="b-data-desc">Crisp filo pastry rolls filled with seasoned Akawi cheese and wild mint.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">447,500 LBP</span>
+                <span class="b-data-usd">$5.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;">+</button>
+              </div>
+            </div>
+
+            <div class="b-data-row" onclick="quickAdd('Hand-Cut Fries', 358000, '$4.00', '../assets/french-fries.jpg')">
+              <img src="../assets/french-fries.jpg" class="b-data-thumb" alt="Fries"/>
+              <div>
+                <div class="b-data-title">Hand-Cut French Fries // بطاطا مقلية</div>
+                <div class="b-data-desc">Crisp golden potatoes tossed in sea salt, served with cold toum garlic dip.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">358,000 LBP</span>
+                <span class="b-data-usd">$4.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;">+</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 05: WRAPS -->
+        <section id="sec-05" class="b-section">
+          <div class="b-section-header">
+            <span class="b-section-code">DIV // 05</span>
+            <h2 class="b-section-title">CHARRED WRAPS &amp; SANDWICHES</h2>
+          </div>
+
+          <div class="b-data-table">
+            <div class="b-data-row" onclick="openDetailModal('taouk-wrap', 'Tawook Charcoal Sandwich', 'ساندويش طاووق', '537,000 LBP', '$6.00', 'Marinated chicken breast, toum garlic paste, pickles, french fries wrapped in pita.', '../assets/taouk-sandwich.jpg')">
+              <img src="../assets/taouk-sandwich.jpg" class="b-data-thumb" alt="Tawook Wrap"/>
+              <div>
+                <div class="b-data-title">Tawook Charcoal Wrap // ساندويش طاووق</div>
+                <div class="b-data-desc">Charred tawook breast cubes, cold toum, salted cucumber pickles, fries in pita.</div>
+              </div>
+              <div class="b-data-price-cell">
+                <span class="b-data-price">537,000 LBP</span>
+                <span class="b-data-usd">$6.00</span>
+                <button class="b-btn-action" style="padding:4px 10px; font-size:10px;">+</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 06: HPC -->
+        <section id="sec-06" class="b-section" style="border-bottom:none; margin-bottom:80px;">
+          <div class="b-section-header">
+            <span class="b-section-code">DIV // 06</span>
+            <h2 class="b-section-title">HIGH PROTEIN CLUB // MACRO MATRIX</h2>
+          </div>
+
+          <article class="b-feature-spread" onclick="openDetailModal('the-whole-hpc', 'The Whole Bird (HPC Edition)', 'وجبة الرياضيين', '2,150,000 LBP', '$24.00', '158g Protein · 980 kcal. One kilogram of pure boneless chicken breast, sweet potatoes, toum.', '../assets/the-whole.webp')">
+            <div class="b-feature-img-cell">
+              <img src="../assets/the-whole.webp" alt="High Protein Club"/>
+            </div>
+            <div class="b-feature-data-cell">
+              <div>
+                <div class="b-feature-item-code">SPEC: 158G PROTEIN // 980 KCAL // ZERO SUGAR</div>
+                <h3 class="b-feature-item-name">The Whole Bird / Athlete Edition</h3>
+                <p class="b-feature-item-desc">One kilogram of pure lean boneless chicken breast with roasted sweet potato cubes, cold toum emulsion, and steamed greens.</p>
+              </div>
+              <div class="b-feature-action-bar">
+                <div>
+                  <div class="b-feature-price">2,150,000 LBP</div>
+                  <div style="font-family:var(--font-mono); font-size:11px; color:var(--color-gray-mid);">(~$24.00 USD)</div>
+                </div>
+                <button class="b-btn-action" onclick="event.stopPropagation(); quickAdd('The Whole Bird (HPC Edition)', 2150000, '$24.00', '../assets/the-whole.webp')">
+                  + ADD TO SELECTION
+                </button>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Slide-Over Basket Drawer -->
+  <div class="b-drawer-backdrop" id="b-cart-drawer" onclick="closeCartDrawer(event)">
+    <div class="b-drawer-panel" onclick="event.stopPropagation()">
+      <div class="b-drawer-head">
+        <h3>BASKET REQUISITION // MTAYLEB</h3>
+        <button class="b-drawer-close" onclick="closeCartDrawer()">[X]</button>
+      </div>
+      <div class="b-drawer-body" id="b-cart-items">
+        <!-- Injected dynamically -->
+      </div>
+      <div class="b-drawer-foot">
+        <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-family:var(--font-mono); font-size:12px;">
+          <span>SUBTOTAL:</span>
+          <strong id="b-subtotal">0 LBP</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-family:var(--font-mono); font-size:11px; color:var(--color-gray-mid);">
+          <span>USD VALUATION:</span>
+          <span id="b-usd">$0.00</span>
+        </div>
+        <button class="b-btn-action" style="width:100%; padding:14px; text-align:center;" onclick="openCheckout()">PROCEED TO CHECKOUT &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="b-drawer-backdrop" id="b-modal" onclick="closeDetailModal(event)">
+    <div class="b-modal-panel" onclick="event.stopPropagation()">
+      <div class="b-drawer-head">
+        <h3 id="b-modal-title">SPECIFICATION</h3>
+        <button class="b-drawer-close" onclick="closeDetailModal()">[X]</button>
+      </div>
+      <div style="padding:20px; overflow-y:auto;">
+        <div style="aspect-ratio:16/9; overflow:hidden; background:#eee; margin-bottom:16px;">
+          <img id="b-modal-img" src="" style="width:100%; height:100%; object-fit:cover;" alt=""/>
+        </div>
+        <p id="b-modal-desc" style="font-size:13px; color:var(--color-gray-mid); margin-bottom:16px; line-height:1.6;"></p>
+
+        <div style="margin-bottom:16px;">
+          <div class="b-field-label">SELECT SALAD ACCOMPANIMENT</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <button class="b-btn-action" style="background:#000; color:#fff;" onclick="toggleModalOption(this)">FATTOUSH</button>
+            <button class="b-btn-action" style="background:#fff; color:#000;" onclick="toggleModalOption(this)">TABBOULEH</button>
+          </div>
+        </div>
+
+        <div class="b-field-group">
+          <label class="b-field-label">CHEF PREPARATION DIRECTIVE</label>
+          <input type="text" class="b-input" id="b-modal-note" placeholder="e.g. Well-done charcoal char, garlic on side..."/>
+        </div>
+      </div>
+      <div style="padding:16px 20px; border-top:1px solid var(--color-black); background:var(--color-gray-subtle); display:flex; justify-content:space-between; align-items:center;">
+        <div id="b-modal-price" style="font-family:var(--font-mono); font-weight:700;">0 LBP</div>
+        <button class="b-btn-action" onclick="confirmModalAdd()">CONFIRM SPECIFICATION</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full Checkout View -->
+  <div class="b-checkout-view" id="b-checkout-view">
+    <div class="b-checkout-nav">
+      <button class="b-btn-action" onclick="closeCheckout()">&larr; BACK TO MATRIX</button>
+      <span style="font-family:var(--font-mono); font-size:12px; margin-left:24px; font-weight:700;">CHECKOUT ORDER SPECIFICATION // DAR EL BEK</span>
+    </div>
+
+    <div class="b-checkout-grid">
+      <div class="b-checkout-left">
+        <div class="b-field-group">
+          <div class="b-field-label">FULFILLMENT DISCIPLINE</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <button class="b-btn-action" style="background:#000; color:#fff;" onclick="setMode(this)">DOOR DELIVERY (MTAYLEB)</button>
+            <button class="b-btn-action" style="background:#fff; color:#000;" onclick="setMode(this)">BRANCH PICKUP</button>
+          </div>
+        </div>
+
+        <div class="b-field-group">
+          <label class="b-field-label">RECIPIENT NAME</label>
+          <input type="text" class="b-input" value="Anthony Bassil"/>
+        </div>
+
+        <div class="b-field-group">
+          <label class="b-field-label">TELEPHONE (DIRECT)</label>
+          <input type="tel" class="b-input" value="+961 03 482 915"/>
+        </div>
+
+        <div class="b-field-group">
+          <label class="b-field-label">DESTINATION COORDINATES / ADDRESS</label>
+          <input type="text" class="b-input" value="Rabieh, Rue 14, Bâtiment Cèdres, 3e Étage"/>
+        </div>
+
+        <div class="b-field-group">
+          <label class="b-field-label">SETTLEMENT METHOD</label>
+          <select class="b-select">
+            <option>CASH ON DELIVERY (LBP)</option>
+            <option>CASH ON DELIVERY (USD)</option>
+            <option>CARD MACHINE ON ARRIVAL (POS)</option>
+            <option>WHISH MONEY TRANSFER</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="b-checkout-right">
+        <div class="b-field-label">ORDER REQUISITION SUMMARY</div>
+        <table class="b-receipt-table" id="b-checkout-table"></table>
+        <div style="margin-top:24px;">
+          <button class="b-btn-action" style="width:100%; padding:16px; font-size:13px;" onclick="placeOrder()">TRANSMIT ORDER TO HEARTH &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="b-drawer-backdrop" id="b-confirm-modal">
+    <div class="b-modal-panel" style="max-width:480px; text-align:center; padding:36px 28px;">
+      <div style="font-family:var(--font-mono); font-size:32px; margin-bottom:12px;">[ OK ]</div>
+      <div style="font-family:var(--font-mono); font-size:16px; font-weight:700; text-transform:uppercase; margin-bottom:8px;">ORDER TRANSMITTED #DEB-3920</div>
+      <p style="font-size:13px; color:var(--color-gray-mid); line-height:1.6; margin-bottom:24px;">
+        Dispatched to Mtayleb Charcoal Hearth. Temperature-monitored courier assigned. Estimated arrival: 32 minutes.
+      </p>
+      <button class="b-btn-action" style="width:100%; padding:12px;" onclick="closeConfirmModal()">RETURN TO DIRECTORY</button>
+    </div>
+  </div>
+
+  <script>
+    const RATE = 89500;
+    let bCart = [];
+    let bModalItem = null;
+
+    function formatLBP(val) {
+      return val.toLocaleString('en-US') + ' LBP';
+    }
+
+    function formatUSD(val) {
+      return '$' + (val / RATE).toFixed(2);
+    }
+
+    function setActiveRail(el) {
+      document.querySelectorAll('.b-rail-link').forEach(l => l.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function quickAdd(name, price, usd, img) {
+      const exist = bCart.find(i => i.name === name);
+      if (exist) {
+        exist.qty += 1;
+      } else {
+        bCart.push({ name, price, usd, img, qty: 1, note: '' });
+      }
+      updateBUI();
+    }
+
+    function openDetailModal(id, name, ar, priceStr, usd, desc, img) {
+      const numPrice = parseInt(priceStr.replace(/[^0-9]/g, ''));
+      bModalItem = { id, name, ar, price: numPrice, usd, desc, img };
+      document.getElementById('b-modal-title').textContent = 'SPEC: ' + name;
+      document.getElementById('b-modal-desc').textContent = desc;
+      document.getElementById('b-modal-img').src = img;
+      document.getElementById('b-modal-price').textContent = formatLBP(numPrice) + ' (' + usd + ')';
+      document.getElementById('b-modal-note').value = '';
+      document.getElementById('b-modal').classList.add('active');
+    }
+
+    function closeDetailModal(e) {
+      if (e && e.target !== e.currentTarget && !e.target.classList.contains('b-drawer-close')) return;
+      document.getElementById('b-modal').classList.remove('active');
+    }
+
+    function toggleModalOption(btn) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('button').forEach(b => {
+        b.style.background = '#fff';
+        b.style.color = '#000';
+      });
+      btn.style.background = '#000';
+      btn.style.color = '#fff';
+    }
+
+    function confirmModalAdd() {
+      if (!bModalItem) return;
+      const note = document.getElementById('b-modal-note').value.trim();
+      const exist = bCart.find(i => i.name === bModalItem.name && i.note === note);
+      if (exist) {
+        exist.qty += 1;
+      } else {
+        bCart.push({ name: bModalItem.name, price: bModalItem.price, usd: bModalItem.usd, img: bModalItem.img, qty: 1, note });
+      }
+      document.getElementById('b-modal').classList.remove('active');
+      updateBUI();
+    }
+
+    function updateBUI() {
+      const totalCount = bCart.reduce((sum, i) => sum + i.qty, 0);
+      const subtotal = bCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      document.getElementById('b-cart-count').textContent = '[' + totalCount + ']';
+      document.getElementById('b-subtotal').textContent = formatLBP(subtotal);
+      document.getElementById('b-usd').textContent = formatUSD(subtotal);
+
+      const list = document.getElementById('b-cart-items');
+      if (bCart.length === 0) {
+        list.innerHTML = '<div style="font-family:var(--font-mono); font-size:12px; color:var(--color-gray-mid); text-align:center; padding:32px 0;">[ REQUISITION EMPTY ]</div>';
+      } else {
+        list.innerHTML = bCart.map((item, idx) => `
+          <div class="b-cart-item">
+            <img src="${item.img}" class="b-cart-thumb" alt="${item.name}"/>
+            <div>
+              <div style="font-weight:600; font-size:13px;">${item.name}</div>
+              ${item.note ? `<div style="font-size:11px; color:var(--color-gray-mid);">Directive: ${item.note}</div>` : ''}
+              <div style="margin-top:4px; font-family:var(--font-mono); font-size:11px;">
+                <button onclick="changeBQty(${idx}, -1)" style="border:1px solid #000; background:#fff; padding:1px 6px; cursor:pointer;">-</button>
+                <span style="padding:0 6px;">${item.qty}</span>
+                <button onclick="changeBQty(${idx}, 1)" style="border:1px solid #000; background:#fff; padding:1px 6px; cursor:pointer;">+</button>
+              </div>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:12px; font-weight:700;">
+              ${formatLBP(item.price * item.qty)}
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function changeBQty(idx, delta) {
+      bCart[idx].qty += delta;
+      if (bCart[idx].qty <= 0) bCart.splice(idx, 1);
+      updateBUI();
+    }
+
+    function openCartDrawer() {
+      document.getElementById('b-cart-drawer').classList.add('active');
+    }
+
+    function closeCartDrawer(e) {
+      if (e && e.target !== e.currentTarget && !e.target.classList.contains('b-drawer-close')) return;
+      document.getElementById('b-cart-drawer').classList.remove('active');
+    }
+
+    function openCheckout() {
+      if (bCart.length === 0) {
+        alert('Requisition empty.');
+        return;
+      }
+      closeCartDrawer();
+      const subtotal = bCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const delivery = 150000;
+      const total = subtotal + delivery;
+
+      let html = '';
+      bCart.forEach(item => {
+        html += `
+          <tr>
+            <td>${item.qty}x ${item.name}</td>
+            <td style="text-align:right; font-family:var(--font-mono);">${formatLBP(item.price * item.qty)}</td>
+          </tr>
+        `;
+      });
+      html += `
+        <tr>
+          <td>DELIVERY DISPATCH (MTAYLEB)</td>
+          <td style="text-align:right; font-family:var(--font-mono);">150,000 LBP</td>
+        </tr>
+        <tr class="total-row">
+          <td>TOTAL SETTLEMENT</td>
+          <td style="text-align:right;">${formatLBP(total)}<br/><span style="font-size:11px; color:var(--color-gray-mid); font-weight:400;">(${formatUSD(total)})</span></td>
+        </tr>
+      `;
+      document.getElementById('b-checkout-table').innerHTML = html;
+      document.getElementById('b-checkout-view').classList.add('active');
+    }
+
+    function closeCheckout() {
+      document.getElementById('b-checkout-view').classList.remove('active');
+    }
+
+    function setMode(btn) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('button').forEach(b => {
+        b.style.background = '#fff';
+        b.style.color = '#000';
+      });
+      btn.style.background = '#000';
+      btn.style.color = '#fff';
+    }
+
+    function placeOrder() {
+      closeCheckout();
+      document.getElementById('b-confirm-modal').classList.add('active');
+      bCart = [];
+      updateBUI();
+    }
+
+    function closeConfirmModal() {
+      document.getElementById('b-confirm-modal').classList.remove('active');
+    }
+
+    // Initialize with one item
+    quickAdd('Farrouj Fahem Msahab', 2058500, '$23.00', '../assets/chargrilled-boneless-chicken.jpg');
+  </script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+import os
+
+css_content = """/* ==========================================================================
+   DAR EL BEK — CONCEPT C: MODERN HIGH-CONTRAST HOSPITALITY ("DARK & STARK")
+   Cinematic Midnight Canvas · Syne & Space Grotesk · Chiaroscuro Culinary Stage
+   ========================================================================== */
+
+:root {
+  --c-black: #000000;
+  --c-white: #FFFFFF;
+  --c-charcoal: #141414;
+  --c-gray-dark: #222222;
+  --c-gray-mid: #737373;
+  --c-gray-light: #CCCCCC;
+  
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, sans-serif;
+  
+  --ease-sharp: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--c-black);
+  color: var(--c-white);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--c-white);
+  background-color: var(--c-black);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Master Container */
+.c-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-left: clamp(20px, 4vw, 48px);
+  padding-right: clamp(20px, 4vw, 48px);
+}
+
+/* Header */
+.c-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--c-gray-dark);
+}
+
+.c-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.c-brand {
+  text-decoration: none;
+  color: var(--c-white);
+}
+
+.c-brand-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.c-brand-sub {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-gray-mid);
+}
+
+.c-btn-cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--c-white);
+  color: var(--c-black);
+  border: 1px solid var(--c-white);
+  padding: 10px 20px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.c-btn-cart:hover {
+  background: var(--c-black);
+  color: var(--c-white);
+}
+
+/* Sticky Category Rail */
+.c-cat-rail {
+  position: sticky;
+  top: 72px;
+  z-index: 45;
+  background: rgba(0, 0, 0, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--c-gray-dark);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.c-cat-rail::-webkit-scrollbar { display: none; }
+
+.c-cat-track {
+  display: flex;
+  gap: 32px;
+  padding: 14px 0;
+  white-space: nowrap;
+}
+
+.c-cat-link {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-gray-mid);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.15s ease;
+}
+
+.c-cat-link:hover,
+.c-cat-link.active {
+  color: var(--c-white);
+}
+
+.c-cat-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--c-white);
+}
+
+/* Hero Cinematic Stage */
+.c-hero {
+  padding: 72px 0 54px;
+  border-bottom: 1px solid var(--c-gray-dark);
+}
+
+.c-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .c-hero-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 64px;
+  }
+}
+
+.c-hero-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-gray-mid);
+  margin-bottom: 14px;
+}
+
+.c-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.c-hero-desc {
+  font-size: 16px;
+  color: var(--c-gray-light);
+  line-height: 1.6;
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+
+.c-hero-img-box {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-gray-dark);
+}
+
+.c-hero-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) brightness(0.95);
+  transition: transform 0.6s var(--ease-sharp);
+}
+
+.c-hero-img-box:hover img {
+  transform: scale(1.04);
+}
+
+/* Category Sections */
+.c-section {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--c-gray-dark);
+}
+
+.c-section-head {
+  margin-bottom: 40px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--c-white);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (min-width: 768px) {
+  .c-section-head {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.c-section-num {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--c-gray-mid);
+}
+
+.c-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* Inverted High-Contrast Dish Card (White Burst on Black Canvas) */
+.c-burst-dish {
+  background: var(--c-white);
+  color: var(--c-black);
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 48px;
+  cursor: pointer;
+}
+
+@media (min-width: 860px) {
+  .c-burst-dish {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.c-burst-photo {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--c-black);
+}
+
+.c-burst-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05);
+  transition: transform 0.5s var(--ease-sharp);
+}
+
+.c-burst-dish:hover .c-burst-photo img {
+  transform: scale(1.035);
+}
+
+.c-burst-info {
+  padding: clamp(24px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.c-burst-tag {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-gray-mid);
+  margin-bottom: 8px;
+}
+
+.c-burst-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 800;
+  line-height: 1.15;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.c-burst-desc {
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.c-burst-price {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.c-btn-burst {
+  background: var(--c-black);
+  color: var(--c-white);
+  border: 1px solid var(--c-black);
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.15s ease;
+}
+
+.c-btn-burst:hover {
+  background: var(--c-white);
+  color: var(--c-black);
+}
+
+/* Dark Rows (No Cards, Pure Hairline Dividers) */
+.c-row-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-row-dish {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--c-gray-dark);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.c-row-dish:hover {
+  background-color: var(--c-charcoal);
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.c-row-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.c-row-thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--c-gray-dark);
+}
+
+.c-row-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.c-row-desc {
+  font-size: 13px;
+  color: var(--c-gray-mid);
+}
+
+.c-row-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.c-row-price {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.c-btn-mini {
+  background: var(--c-white);
+  color: var(--c-black);
+  border: 1px solid var(--c-white);
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.c-btn-mini:hover {
+  background: var(--c-black);
+  color: var(--c-white);
+}
+
+/* Floating Bottom Cart Capsule */
+.c-float-cart-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 40;
+  pointer-events: none;
+  padding: 0 20px;
+}
+
+.c-float-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 480px;
+  background: var(--c-white);
+  color: var(--c-black);
+  padding: 16px 24px;
+  border: 1px solid var(--c-white);
+  cursor: pointer;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  transition: transform 0.15s ease;
+}
+
+.c-float-pill:hover {
+  transform: translateY(-2px);
+}
+
+/* Slide-Over Drawer */
+.c-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.c-drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.c-drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  background: var(--c-black);
+  border-left: 1px solid var(--c-gray-dark);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.25s var(--ease-sharp);
+}
+
+.c-drawer-backdrop.active .c-drawer-panel {
+  transform: translateX(0);
+}
+
+.c-drawer-head {
+  padding: 24px;
+  border-bottom: 1px solid var(--c-gray-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-drawer-head h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.c-drawer-close {
+  background: none;
+  border: none;
+  color: var(--c-white);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.c-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.c-drawer-foot {
+  padding: 24px;
+  border-top: 1px solid var(--c-gray-dark);
+  background: var(--c-charcoal);
+}
+
+.c-cart-row {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--c-gray-dark);
+}
+
+.c-cart-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  background: var(--c-gray-dark);
+}
+
+/* Full Checkout View */
+.c-checkout-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--c-black);
+  z-index: 120;
+  overflow-y: auto;
+  display: none;
+}
+
+.c-checkout-overlay.active {
+  display: block;
+}
+
+.c-checkout-top {
+  border-bottom: 1px solid var(--c-gray-dark);
+  padding: 18px 0;
+}
+
+.c-checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding: 48px 0 80px;
+}
+
+@media (min-width: 900px) {
+  .c-checkout-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.c-field {
+  margin-bottom: 20px;
+}
+
+.c-field-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--c-gray-mid);
+}
+
+.c-input, .c-select {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-gray-dark);
+  color: var(--c-white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+}
+
+.c-input:focus, .c-select:focus {
+  border-color: var(--c-white);
+}
+
+.c-summary-box {
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-gray-dark);
+  padding: 32px;
+}
+
+.c-summary-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--c-gray-dark);
+}
+"""
+
+with open('/root/dar-el-bek/design-preview/concept-c/style.css', 'w') as f:
+    f.write(css_content)
+print("Concept C style.css written successfully!")
